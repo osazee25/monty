@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200809L
 #include "monty.h"
 
 /**
@@ -47,7 +48,7 @@ char **stringsplit(char *buf)
 	if (token == NULL || *token == '#')
 	{
 		free(bufcpy);
-		free(avcode); // Free the avcode array before returning
+		free(avcode);
 		return (NULL);
 	}
 
@@ -57,7 +58,7 @@ char **stringsplit(char *buf)
 		if (avcode[i] == NULL)
 	{
 	perror("strdup");
-	free_av(avcode); // Free any allocated tokens before returning
+	free_av(avcode);
 	free(bufcpy);
 	exit(EXIT_FAILURE);
 	}
